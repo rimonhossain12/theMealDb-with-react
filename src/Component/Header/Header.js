@@ -1,10 +1,11 @@
 import React from 'react';
+import Food from '../Food/Food';
 
 
 const Header = () => {
     return (
         <div>
-            <h2>This is header folder</h2>
+            <Food></Food>
         </div>
     );
 };

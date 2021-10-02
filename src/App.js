@@ -40,6 +40,9 @@ function App() {
                   <Route exact path="/contact">
                       <Contact></Contact>
                   </Route>
+                  <Route exact path="/">
+                      <Food></Food>
+                  </Route>
                   <Route exact="*">
                       <NotFound></NotFound>
                   </Route>
