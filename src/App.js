@@ -1,23 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import About from './Component/About/About';
+import Header from './Component/Header/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+// import SearchFood from './Component/SearchFood/SearchFood';
+import Contact from './Component/Contact/Contact';
+import NotFound from './Component/NotFound/NotFound';
+import Food from './Component/Food/Food';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <BrowserRouter>
+              <Navbar bg="light" expand="lg">
+                  <Container>
+                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                      <Navbar.Collapse id="basic-navbar-nav">
+                          <Nav className="me-auto">
+                              <Nav.Link href="home">Home</Nav.Link>
+                              <Nav.Link href="about">About</Nav.Link>
+                              <Nav.Link href="food">Food</Nav.Link>
+                              <Nav.Link href="contact">contact</Nav.Link>
+                          </Nav>
+                      </Navbar.Collapse>
+                  </Container>
+              </Navbar>
+
+              <Switch>
+                  <Route exact path="/home">
+                      <Header></Header>
+                  </Route>
+                  <Route exact path="/about">
+                      <About></About>
+                  </Route>
+                  <Route exact path="/food">
+                      <Food></Food>
+                  </Route>
+                  <Route exact path="/contact">
+                      <Contact></Contact>
+                  </Route>
+                  <Route exact="*">
+                      <NotFound></NotFound>
+                  </Route>
+              </Switch>
+          </BrowserRouter>
     </div>
   );
 }
