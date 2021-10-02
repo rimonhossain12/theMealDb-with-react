@@ -4,10 +4,11 @@ import Header from './Component/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import SearchFood from './Component/SearchFood/SearchFood';
 import Contact from './Component/Contact/Contact';
 import NotFound from './Component/NotFound/NotFound';
 import Food from './Component/Food/Food';
+import SearchFood from './Component/SearchFood/SearchFood';
+
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
                           <Nav className="me-auto">
                               <Nav.Link href="home">Home</Nav.Link>
                               <Nav.Link href="about">About</Nav.Link>
-                              <Nav.Link href="food">Food</Nav.Link>
+                              <Nav.Link href="food">SearchFood</Nav.Link>
                               <Nav.Link href="contact">contact</Nav.Link>
                           </Nav>
                       </Navbar.Collapse>
@@ -34,8 +35,8 @@ function App() {
                   <Route exact path="/about">
                       <About></About>
                   </Route>
-                  <Route exact path="/food">
-                      <Food></Food>
+                  <Route path="/food">
+                      <SearchFood></SearchFood>
                   </Route>
                   <Route exact path="/contact">
                       <Contact></Contact>
