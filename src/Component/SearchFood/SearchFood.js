@@ -6,19 +6,21 @@ import SearchFoodDisplay from '../SearchFoodDisplay/SearchFoodDisplay';
 const SearchFood = () => {
     const [foods, setFoods] = useState([]);
     const [searchText, setSearchText] = useState("");
-    useEffect(() => {
-        // let url = `www.themealdb.com/api/json/v1/1/random.php`;
-        fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-            .then(res => res.json())
-            .then(data => setFoods(data.categories));
-    }, [])
 
     // search text handle in 
     const handleSearchText = (event) => {
         console.log(event.target.value)
+        const newText = event.target.value;
+        setSearchText(newText);
+
     }
 
-
+    useEffect(() => {
+        // let url = `www.themealdb.com/api/json/v1/1/random.php`;
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
+            .then(res => res.json())
+            .then(data => setFoods(data?.meals));
+    }, [foods])
 
     return (
         <div>
