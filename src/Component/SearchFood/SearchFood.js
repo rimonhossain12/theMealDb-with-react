@@ -12,17 +12,25 @@ const SearchFood = () => {
             .then(res => res.json())
             .then(data => setFoods(data.categories));
     }, [])
+
+    // search text handle in 
+    const handleSearchText = (event) => {
+        console.log(event.target.value)
+    }
+
+
+
     return (
         <div>
             <h4 className="text-primary mt-3 fw-bold">Search Your Favorite Food here</h4>
             <div className="container mt-5">
                 <InputGroup className="w-50 mx-auto">
-                    <FormControl
+                    <FormControl onChange={handleSearchText}
                         placeholder="Type here to your favorite food"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
                     />
-                    <Button variant="outline-secondary" id="button-addon2">
+                    <Button variant="primary" id="button-addon2">
                         Button
                     </Button>
                 </InputGroup>
