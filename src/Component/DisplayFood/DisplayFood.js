@@ -1,6 +1,7 @@
 import React from 'react';
 import './DisplayFood.css';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const DisplayFood = (props) => {
     const { idCategory, strCategory, strCategoryThumb, strCategoryDescription } = props.food;
@@ -13,7 +14,9 @@ const DisplayFood = (props) => {
                     <h5>{strCategory}</h5>
                     <p>{strCategoryDescription.slice(0, 150)}</p>
                 </div>
-                <Button variant="warning">Order Now</Button>
+                <Link to="/contact">
+                    <Button variant="warning">Order Now</Button>
+                </Link>
             </div>
 
         </div>

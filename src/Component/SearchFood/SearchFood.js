@@ -19,7 +19,7 @@ const SearchFood = () => {
         // let url = `www.themealdb.com/api/json/v1/1/random.php`;
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
             .then(res => res.json())
-            .then(data => setFoods(data?.meals));
+            .then(data => setFoods(data.meals));
     }, [foods])
 
     return (
@@ -38,7 +38,7 @@ const SearchFood = () => {
                 </InputGroup>
                 <Row xs={1} md={2} xl={3} className="g-4">
                     {
-                        foods.map(food => <SearchFoodDisplay
+                        foods && foods.map(food => <SearchFoodDisplay
                             key={food.idCategory}
                             food={food}
 
