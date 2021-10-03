@@ -13,19 +13,10 @@ const Food = () => {
             .then(data => setFoods(data.categories))
     }, [])
 
+
     return (
         <div className="container mt-3">
-            <h2 className="mb-3">Choice Your Food</h2>
-            <InputGroup className="mb-3 w-50 mx-auto">
-                <FormControl
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                />
-                <Button variant="warning" id="button-addon2">
-                    Button
-                </Button>
-            </InputGroup>
+            <h2 className="mb-3 text-warning fw-bold p-3">Show in sample Food </h2>
             <Row xs={1} md={2} xl={3} className="g-4">
                 {
                     foods.map(food => <DisplayFood
